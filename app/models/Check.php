@@ -17,9 +17,14 @@ class Check extends Eloquent{
     // select n.email,n.name,n.job from namelist n join checkin_history c on n.email != c.email
     public static function display(){
         // 顯示已簽到與未簽到清單
+        $not_yet = [];
+        foreach(DB::table('checkin_history')->select('email')->get() as $obj){
+            array_push($not_yet, $obj->email);
+        }
+        
         $result = [
             'done'=>DB::table('namelist')->select('namelist.name','namelist.email','namelist.job')->join('checkin_history','checkin_history.email','=','namelist.email')->get(),
-            'not_yet'=>DB::table('namelist')->select('namelist.name','namelist.email','namelist.job')->join('checkin_history','checkin_history.email','!=','namelist.email')->get()
+            'not_yet'=>DB::table('namelist')->select('namelist.name','namelist.email','namelist.job')->whereNotIn('email',$not_yet)->get()
         ];
         return $result;
 
