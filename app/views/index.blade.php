@@ -13,7 +13,7 @@
                 $.post('{{url("/check")}}',{email:$('#email').val()},function(res){
                     $('#email').val('');
                     alert(res);
-
+                    
                 })
             })
             $('form').submit(function(e){
@@ -43,7 +43,8 @@
                             <li>地點：中央研究院人文館與活動中心</li>
                             <li>交通資訊：捷運南港站二號出口下車轉公車212、270、藍25</li>
                             <li>場地佈置：7/18早上9點～下午5點 <a target="_blank" href="http://goo.gl/chhIBt" class="btn btn-success">場佈出席調查</a></li>
-                            <li>行前信：<a href="https://docs.google.com/document/d/1GMYNGgTkm19wUq5Rqat9s0vQ4qhD2PHMaj4nmTl8Vfs/pub" target="_blank" class="btn btn-success">行前通知</a></li>
+                            <li>行前信：<a href="https://docs.google.com/document/d/1GMYNGgTkm19wUq5Rqat9s0vQ4qhD2PHMaj4nmTl8Vfs/pub" target="_blank" class="btn btn-success">行前通知</a></li>                      
+                            
                         </ul>  
                     </div>
                 </div>
@@ -57,6 +58,7 @@
         <div class="row">
             <form class="col-md-10 col-md-offset-1">
                 <div class="input-group">
+                    <br>
                     <input id="email" type="text" class="form-control input-lg" placeholder="Email">
                     <div class="input-group-btn">
                         <a id="submit" class="btn btn-primary btn-lg">確認</a>
